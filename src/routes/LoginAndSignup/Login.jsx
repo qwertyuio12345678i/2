@@ -1,12 +1,12 @@
-import { useContext, useState } from 'react';
-import { User } from '../../utils/Validation';
-import { z } from 'zod';
-import { UserContext } from '../../components/UserContextProvider';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useContext, useState } from "react";
+import { User } from "../../utils/Validation";
+import { z } from "zod";
+import { UserContext } from "../../components/UserContextProvider";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState(null);
 
   const userContext = useContext(UserContext);
@@ -33,8 +33,8 @@ function Login() {
           if (user) {
             userContext.onChange(user);
             console.log(userContext);
-            navigate('/home');
-          } else setErrors({ user: 'Invalid user' });
+            navigate("/home");
+          } else setErrors({ user: "Invalid user" });
         })
         .catch((err) => {
           console.log(err);

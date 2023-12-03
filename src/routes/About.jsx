@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import { UserContext } from '../components/UserContextProvider';
-import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { UserContext } from "../components/UserContextProvider";
+import { Link } from "react-router-dom";
 
 function About() {
   const { user, loading } = useContext(UserContext);
@@ -22,7 +22,7 @@ function About() {
           </div>
           <div className="flex justify-center">
             <p className="font-bold">Date sign in:&nbsp;</p>
-            <p>{new Date(user.date).toLocaleString('ru-Ru')}</p>
+            <p>{new Date(user.date).toLocaleString("ru-Ru")}</p>
           </div>
         </main>
         <button className="mt-10">

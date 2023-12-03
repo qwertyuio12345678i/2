@@ -1,5 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { Api } from '../utils/DataLoader';
+import React, { createContext, useEffect, useState } from "react";
+import { Api } from "../utils/DataLoader";
 
 export const UserContext = createContext(null);
 
@@ -9,7 +9,7 @@ function UserContextProvider({ children }) {
 
   useEffect(() => {
     setLoading(true);
-    const id = localStorage.getItem('userId');
+    const id = localStorage.getItem("userId");
     if (id) {
       fetch(`http://localhost:5001/users?id=${id}`)
         .then((r) => r.json())
@@ -23,7 +23,7 @@ function UserContextProvider({ children }) {
 
   useEffect(() => {
     if (user?.id) {
-      localStorage.setItem('userId', user.id);
+      localStorage.setItem("userId", user.id);
     }
   }, [user?.id]);
 

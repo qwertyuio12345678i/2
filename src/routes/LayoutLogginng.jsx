@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-import { setActive } from '../utils/setActive';
-import { UserContext } from '../components/UserContextProvider';
+import React, { useContext } from "react";
+import { NavLink, Outlet } from "react-router-dom";
+import { setActive } from "../utils/setActive";
+import { UserContext } from "../components/UserContextProvider";
 
 function Layout() {
   const { onChange, user } = useContext(UserContext);
@@ -15,10 +15,10 @@ function Layout() {
     <div className="w-5/6 mx-auto my-1 border border-black-600 rounded shadow-lg overflow-hidden">
       <header className="flex flex-row justify-end items-center mb-10 bg-sky-500 text-white p-5">
         <nav className="prose-xl flex flex-row gap-4">
-          <NavLink className={setActive} to={'/'}>
+          <NavLink className={setActive} to={"/"}>
             Log in
           </NavLink>
-          <NavLink to={'/signup'} end={true} className={setActive}>
+          <NavLink to={"/signup"} end={true} className={setActive}>
             Sign in
           </NavLink>
         </nav>

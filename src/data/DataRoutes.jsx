@@ -1,28 +1,28 @@
-import { createBrowserRouter } from 'react-router-dom';
-import Layout from '../routes/Layout';
-import Login from '../routes/LoginAndSignup/Login';
-import ErrorPage from '../routes/ErrorPage/ErrorPage';
-import About from '../routes/About';
-import Notes /*, { loader as notesLoader }*/ from '../routes/Notes/Notes';
-import EditNote, { loader as noteLoader } from '../routes/Notes/EditNote';
-import RequireAuth from '../components/RequireAuth';
-import NewNote from '../routes/Notes/NewNote';
-import LayoutLogginng from '../routes/LayoutLogginng';
-import Signup from '../routes/LoginAndSignup/Signup';
+import { createBrowserRouter } from "react-router-dom";
+import Layout from "../routes/Layout";
+import Login from "../routes/LoginAndSignup/Login";
+import ErrorPage from "../routes/ErrorPage/ErrorPage";
+import About from "../routes/About";
+import Notes /*, { loader as notesLoader }*/ from "../routes/Notes/Notes";
+import EditNote, { loader as noteLoader } from "../routes/Notes/EditNote";
+import RequireAuth from "../components/RequireAuth";
+import NewNote from "../routes/Notes/NewNote";
+import LayoutLogginng from "../routes/LayoutLogginng";
+import Signup from "../routes/LoginAndSignup/Signup";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <LayoutLogginng />,
     children: [
       {
-        path: '/',
+        path: "/",
         //loader: usersLoader,
         element: <Login />,
         errorElement: <ErrorPage />,
       },
       {
-        path: '/signup',
+        path: "/signup",
         //loader: usersLoader,
         element: <Signup />,
         errorElement: <ErrorPage />,
@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/home',
+    path: "/home",
     element: (
       <RequireAuth>
         <Layout />
@@ -38,31 +38,31 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/home',
+        path: "/home",
         element: <About />,
         errorElement: <ErrorPage />,
       },
       {
-        path: '/home/notes',
+        path: "/home/notes",
         element: <Notes />,
         //loader: notesLoader,
         errorElement: <ErrorPage />,
       },
       {
-        path: '/home/notes/:id',
+        path: "/home/notes/:id",
         element: <EditNote />,
         loader: noteLoader,
         errorElement: <ErrorPage />,
       },
       {
-        path: '/home/newNote',
+        path: "/home/newNote",
         element: <NewNote />,
         errorElement: <ErrorPage />,
       },
     ],
   },
   {
-    path: '*',
+    path: "*",
     element: <ErrorPage />,
   },
 ]);

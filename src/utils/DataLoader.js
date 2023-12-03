@@ -1,10 +1,10 @@
-import { defer } from 'react-router-dom';
+import { defer } from "react-router-dom";
 
-const serverUrl = 'http://localhost:5001';
+const serverUrl = "http://localhost:5001";
 
 export class Api {
   static async setUser({ user }) {
-    return await set('users', user);
+    return await set("users", user);
   }
 
   static async getNotes({ id }) {
@@ -35,8 +35,8 @@ export class Api {
 const get = async (url) => {
   const response = await fetch(`${serverUrl}/${url}`);
   if (!response.ok) {
-    console.log('response not ok 404');
-    throw new Response('', { status: 404 });
+    console.log("response not ok 404");
+    throw new Response("", { status: 404 });
   }
 
   const obj = await response.json();
@@ -45,48 +45,48 @@ const get = async (url) => {
 
 const set = async (url, obj) => {
   const response = await fetch(`${serverUrl}/${url}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(obj),
   });
 
   if (!response.ok) {
-    console.log('response not ok 404');
-    throw new Response('', { status: 404 });
+    console.log("response not ok 404");
+    throw new Response("", { status: 404 });
   }
 
-  console.log('added');
+  console.log("added");
 };
 
 const update = async (url, obj) => {
   const response = await fetch(`${serverUrl}/${url}`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(obj),
   });
 
   if (!response.ok) {
-    console.log('response not ok 404');
+    console.log("response not ok 404");
     throw new Error(`Failed to update item. Status: ${response.status}`);
   }
 
-  console.log('added');
+  console.log("added");
 };
 
 const delElem = async (url) => {
   const response = await fetch(`${serverUrl}/${url}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   });
 
   if (!response.ok) {
-    console.log('response not ok 404');
+    console.log("response not ok 404");
     throw new Error(`Failed to update item. Status: ${response.status}`);
   }
 
-  console.log('added');
+  console.log("added");
 };
 
 /*

@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { User } from '../../utils/Validation';
-import { Api } from '../../utils/DataLoader';
-import { z } from 'zod';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { User } from "../../utils/Validation";
+import { Api } from "../../utils/DataLoader";
+import { z } from "zod";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirm, setSecConfirm] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setSecConfirm] = useState("");
   const [errors, setErrors] = useState(null);
 
   const navigate = useNavigate();
@@ -21,9 +21,9 @@ function Signup() {
         date: Date.now(),
       });
 
-      console.log('new user: ', user);
+      console.log("new user: ", user);
 
-      navigate('/');
+      navigate("/");
       if (password === confirm) {
         Api.setUser({ user });
         setErrors(null);
